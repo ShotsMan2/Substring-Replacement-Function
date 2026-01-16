@@ -2,45 +2,49 @@
 #include <stdlib.h>
 #include <time.h>
 
-void degisim(char kaynak[],char eski[],char yeni[],char sonuc[]){
-    int i=0,j=0,k=0,uygunluk;
+void degisim(char kaynak[], char eski[], char yeni[], char sonuc[])
+{
+    int i = 0, j = 0, k = 0, uygunluk;
 
-    int eskiuzunluk=strlen(eski);
-    int yeniuzunluk=strlen(yeni);
+    int eskiuzunluk = strlen(eski);
+    int yeniuzunluk = strlen(yeni);
 
-    while(kaynak[i]!='\0'){
-        uygunluk=1;
+    while (kaynak[i] != '\0')
+    {
+        uygunluk = 1;
 
-        for(k=0;k<eskiuzunluk;k++){
-            if(kaynak[i+k]!=eski[k]){
-                uygunluk=0;
+        for (k = 0; k < eskiuzunluk; k++)
+        {
+            if (kaynak[i + k] != eski[k])
+            {
+                uygunluk = 0;
                 break;
             }
         }
 
-        if(uygunluk==1){
-            for(k=0;k<yeniuzunluk;k++){
-                sonuc[j]=yeni[k];
+        if (uygunluk == 1)
+        {
+            for (k = 0; k < yeniuzunluk; k++)
+            {
+                sonuc[j] = yeni[k];
                 j++;
             }
-            i=i+eskiuzunluk;
+            i = i + eskiuzunluk;
         }
-        else{
-            sonuc[j]=kaynak[i];
+        else
+        {
+            sonuc[j] = kaynak[i];
             i++;
             j++;
         }
     }
 
-    sonuc[j]='\0';
-
-
-
+    sonuc[j] = '\0';
 }
 
 int main()
 {
-        char metin[200] = "okula gidilir okul zamani okulda";
+    char metin[200] = "okula gidilir okul zamani okulda";
     char eski_kelime[] = "okul";
     char yeni_kelime[] = "mescid";
 
@@ -53,5 +57,4 @@ int main()
     // Ekrana yazdir
     printf("Eski Hali : %s\n", metin);
     printf("Yeni Hali : %s\n", yeni_metin);
-
 }
